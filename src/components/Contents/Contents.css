@@ -1,0 +1,106 @@
+.container{
+    background: #111;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 30px 20px 0;
+    color: white;
+}
+
+.container .title{
+    font-size: 24px;
+    user-select: none;
+}
+
+.movieSlider{
+    display: grid;
+    grid-template-columns: repeat(20,300px);
+    gap:6px;
+    transition: all 0.3s linear;
+    user-select: none;
+    overflow-y: hidden;
+    overflow-x: auto;
+    overflow: hidden;
+    padding-top:28px;
+    padding-bottom: 28px;
+    scroll-behavior: smooth;
+    transition: all 0.1s linear;
+}
+
+.movieSlider:hover .movieItem{
+    opacity: 0.5;
+}
+
+.movieItem{
+    transform: scale(1);
+    max-width: 400px;
+    max-height: 500px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s linear;
+    user-select: none;
+    overflow: hidden;
+    border-radius: 10px;
+    transform: center left;
+    position: relative;
+}
+
+.movieItem:hover{
+    opacity: 1 !important;
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.movieName{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    background: rgba(1, 1, 1, 0.8);
+    width: 100%;
+    padding: 6px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.moviePoster{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.btn{
+    position: absolute;
+    height: 70px;
+    width: 50px;
+    background: rgba(1, 1, 1, 0.7);
+    color:white; 
+    font-size:1.5em;
+    z-index: 100;
+    top:45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btnPrev{
+    margin-left: 20px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.btnNext{
+    right: 20px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.btn:hover{
+    background: rgba(1, 1, 1, 0.9);
+}
+
+.btn:hover svg{
+    transform: scale(1.2);
+    transition: all 0.1s linear;
+}

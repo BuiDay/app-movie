@@ -3,10 +3,7 @@ export const SmoothScrolling = (e, time, amount, start) => {
     var curTime = 0;
     var scrollCounter = 0;
     const y = window.scrollY;
-    const SHS_B = (e,sc,eAmt,start, y)=>{
-        e.scrollLeft = eAmt + sc + start;
-    } 
-    
+   
     while (curTime <= time){
         window.setTimeout(SHS_B, curTime, e, scrollCounter, eAmt, start, y);
         curTime += time / 100;
@@ -15,3 +12,6 @@ export const SmoothScrolling = (e, time, amount, start) => {
     window.scrollTo(0, y);
 }
 
+const SHS_B = (e,sc,eAmt,start, y)=>{
+    e.scrollLeft = eAmt * sc + start;
+} 

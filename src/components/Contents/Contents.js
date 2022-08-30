@@ -21,14 +21,14 @@ const Contents = () => {
     
     return (
         <>
-            <MovieRow movies={NetflixOriginals} title="Netflix Originals" isNetflix={true}/>
-            <MovieRow movies={Trending} title="Trending Movies"/>
-            <MovieRow movies={TopRate} title="Top Rated Movies"/>
-            <MovieRow movies={Action} title="Action Movies"/>
-            <MovieRow movies={Comedy} title="Comedy Movies"/>
-            <MovieRow movies={Horror} title="Horror Movies"/>
-            <MovieRow movies={Romance} title="Romance Movies"/>
-            <MovieRow movies={Documentaries} title="Documentaries"/>
+            <MovieRow movies={NetflixOriginals} title="Netflix Originals" isNetflix={true} idSection='NetflixOriginals'/>
+            <MovieRow movies={Trending} title="Trending Movies" idSection='Trending'/>
+            <MovieRow movies={TopRate} title="Top Rated Movies" idSection='TopRate'/>
+            <MovieRow movies={Action} title="Action Movies" idSection='Action'/>
+            <MovieRow movies={Comedy} title="Comedy Movies" idSection='Comedy'/>
+            <MovieRow movies={Horror} title="Horror Movies" idSection='Horror'/>
+            <MovieRow movies={Romance} title="Romance Movies" idSection='Romance'/>
+            <MovieRow movies={Documentaries} title="Documentaries" idSection='Documentaries'/>
         </>
     );
 };

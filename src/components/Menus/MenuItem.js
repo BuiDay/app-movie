@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-scroll'
 
 const MenuItem = (prop) => {
 
@@ -10,12 +11,19 @@ const MenuItem = (prop) => {
         return color;
     }
       
-    const {Icon, Text} = prop;
+    const {Icon, Text, to} = prop;
     return (
-        <div className='menuItem'>
+        <Link className='menuItem'
+            to={to}
+            spy="true"
+            smooth = "true"
+            offset = {-70}
+            duration = {500}
+            activeClass = 'active'
+        >
             <Icon className='icon' style={{color: randomColors(1)}}/>
             <div className="text">{Text}</div>
-        </div>
+        </Link>
     );
 
 

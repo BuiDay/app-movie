@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { SmoothScrolling } from '../Utils'
 import { useViewport } from "../hooks";
@@ -9,11 +9,14 @@ import {getMovieDetail} from '../store/actions'
 
 
 const MovieRow = (props) => {
-    const { movies, title, isNetflix } = props;
+    const { movies, title, isNetflix, idSection } = props;
     const [windowWidth] = useViewport();
     const sliderRef = useRef();
     const movieRef = useRef();
     const dispatch = useDispatch();
+    const [dragDown, setDragDown] = useState(0);
+    const [dragMove, setDragMove] = useState(0);
+    const [isDrag, setIsDrag] = useState(false);
 
     const handleSetMovie = (movie) =>{
         dispatch(getMovieDetail(movie));
@@ -23,7 +26,7 @@ const MovieRow = (props) => {
     const handScrollRight = () => {
         const maxScrollLeft = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
         if (sliderRef.current.scrollLeft < maxScrollLeft) {
-            SmoothScrolling(sliderRef.current, 250, -movieRef.current.clientWidth * 10, sliderRef.current.scrollLeft);
+            SmoothScrolling(sliderRef.current, 250, movieRef.current.clientWidth * 2, sliderRef.current.scrollLeft);
         }
     }
 
@@ -33,15 +36,32 @@ const MovieRow = (props) => {
         };
     }
 
+    useEffect(()=>{
+        if(isDrag){
+            if(dragMove < dragDown) handScrollRight();
+            if(dragMove > dragDown) handScrollLeft();
+        }
+    },[dragDown, dragMove, isDrag])
 
+    const onDragStart = (e)=>{
+        setIsDrag(true);
+        setDragDown(e.screenX);
+    }
+    const onDragEnd = (e)=>{
+        setIsDrag(false);
+    }
+    const onDragEnter = (e)=>{
+        setDragMove(e.screenX);
+    }
 
     return (
-        <div className="container">
+        <div className="container" draggable='false' id={idSection}>
             <h1 className="title">{title}</h1>
             <div className="movieSlider" id="Slider" ref={sliderRef}
-                // onDragStart = {onDragStart}
-                // onDragEnd = {onDragEnd}
-                // onDragEnter = {onDragEnter}
+                draggable='true'
+                onDragStart = {onDragStart}
+                onDragEnd = {onDragEnd}
+                onDragEnter = {onDragEnter}
                 style={
                     movies && movies.length > 0
                         ? { girdTemplateColumns: `repeat(${movies.length},
@@ -56,8 +76,9 @@ const MovieRow = (props) => {
                             ? `https://image.tmdb.org/t/p/original/${movie.poster_path}`
                             : `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
                         return (
-                            <div className="movieItem" key={index} ref={movieRef} onClick={()=>{handleSetMovie(movie)}}>
+                            <div className="movieItem" draggable='false'  key={index} ref={movieRef} onClick={()=>{handleSetMovie(movie)}}>
                                 <img
+                                draggable='false'
                                     className="moviePoster"
                                     src={imageUrl}
                                     alt=""

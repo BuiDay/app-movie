@@ -70,18 +70,23 @@
 
 .btn{
     position: absolute;
-    height: 70px;
-    width: 50px;
+    height: 50px;
+    width: max-content;
     background: rgba(1, 1, 1, 0.7);
     color:white; 
     font-size:1.5em;
-    z-index: 100;
+    z-index: 50;
     top:45%;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
     cursor: pointer;
+}
+
+.isNetflix{
+    height: 100px;
+    width: max-content;
 }
 
 .btnPrev{

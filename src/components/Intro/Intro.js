@@ -3,8 +3,15 @@ import ReactPlayer from 'react-player';
 import { VscMute, VscUnmute } from 'react-icons/vsc';
 import './Intro.css'
 
-
+const urlVideo = [
+   "https://www.youtube.com/watch?v=YlNEvyjEWLQ&ab_channel=Netflix",
+   "https://www.youtube.com/watch?v=ulPHag30btQ&ab_channel=Netflix",
+   "https://www.youtube.com/watch?v=51F0wfZBV0c&ab_channel=Netflix",
+   "https://www.youtube.com/watch?v=rK-JQU_bShc&ab_channel=Netflix",
+   "https://www.youtube.com/watch?v=xvJL6qQ249A&ab_channel=NetflixBrasil"
+]
 const Intro = () => {
+    const random = Math.floor(Math.random()*5);
     const [value, setValue] = useState(true);
     return (
         <div className='intro__container'>
@@ -13,7 +20,7 @@ const Intro = () => {
                 loop = {true}
                 width = "100%"
                 height= "100%"
-                url="https://www.youtube.com/watch?v=ulPHag30btQ&ab_channel=Netflix"
+                url={urlVideo[random]}
                 volume= {1}
                 muted={value}
                 className = 'intro__video'

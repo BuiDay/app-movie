@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHome, FaHotjar, FaStar, } from 'react-icons/fa';
+import { FaHome, FaHotjar } from 'react-icons/fa';
 import { GiNinjaHeroicStance, GiGhost, GiRomanToga, GiBandageRoll} from 'react-icons/gi';
 import { MdTheaterComedy } from 'react-icons/md';
 import MenuItem from './MenuItem';

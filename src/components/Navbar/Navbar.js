@@ -1,39 +1,60 @@
 import React, { useState } from 'react';
-import './Navbar.css';
-import { BsSearch} from 'react-icons/bs';
+import style from '../Navbar/NavbarStyle.module.scss'
+import { BsSearch } from 'react-icons/bs';
 import Logo from '../../assets/images/netflix-logo.png'
-import {useNavigate} from 'react-router-dom'
+import Notifications from './Notifications';
+import User from './User';
+import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom'
+import { FaGift} from 'react-icons/fa'
+
+
+
 
 const Navbar = () => {
 
     const [keywords, setKeywords] = useState('');
     const navigate = useNavigate();
 
-    const handleChangeInput = (e) =>{
+    const handleChangeInput = (e) => {
         let keyword = e.target.value;
         setKeywords(keyword);
-        if(keyword.length > 0){
+        if (keyword.length > 0) {
             navigate(`/search?keywords=${keyword.trim()}`)
         }
-        else{
+        else {
             navigate('/');
         }
     }
 
-    const goHome = () =>{
+    const goHome = () => {
         navigate('/');
         setKeywords('');
     }
 
     return (
         <nav>
-            <div className='nav__container'>
-                <div className='nav__logo' onClick={goHome} style={{cursor:'pointer'}}>
-                    <img src={Logo} alt=""/>
+            <div className={style.nav__container}>
+                <div className={style.nav__left}>
+                    <div className={style.nav__logo} onClick={goHome} style={{ cursor: 'pointer' }}>
+                        <img src={Logo} alt="" />
+                    </div>
+                    <div className={style.nav__search}>
+                        <div className={style.nav__icon}><BsSearch /></div>
+                        <input type="text" placeholder='search' onChange={handleChangeInput} value={keywords} />
+                    </div>
                 </div>
-                <div className='nav__search'>
-                    <div className='nav__icon'><BsSearch/></div>
-                    <input type="text" placeholder='search' onChange={handleChangeInput} value={keywords}/>
+
+                <div className={style.nav__right}>
+                    <div className={style.list__items}>
+                        <div className={style.name__items}><p>Home</p></div>
+                        <div className={style.name__items}><p>TV Show</p></div>
+                        <div className={style.name__items}><p>Movies</p></div>
+                        <div className={style.name__items}><p>Latest</p></div>
+                        <div className={clsx(style.name__items, style.icon)}><FaGift /></div>
+                        <div className={style.name__items}> <Notifications /></div>
+                        <User />
+                    </div>
                 </div>
             </div>
         </nav>

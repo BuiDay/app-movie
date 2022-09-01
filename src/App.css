@@ -6,6 +6,11 @@
   text-decoration: none;
   outline: none;
 }
+ul, li{
+  list-style: none;
+  padding: 0;
+  text-decoration: none;
+}
 
 a{
   text-decoration: none;

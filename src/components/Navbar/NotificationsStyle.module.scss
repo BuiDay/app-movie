@@ -1,0 +1,42 @@
+.icon{
+    font-size: 30px;
+    padding-top: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.number{
+    position: absolute;
+    top: -3px;
+    right: 3px;
+    font-size: 16px;
+    background-color: rgb(212, 19, 19);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notifications__list{
+    position: absolute;
+    top: 45px;
+    right: 0px;
+    width: 240px;
+    border-radius: 5px;
+    background-color: black;
+    transform-origin:top;
+
+    .notification{
+        width: 100%;
+        padding: 7px 10px;
+        font-size: 15px;
+        transition: all 0.2s ease;
+        &:hover{
+            background-color: white;
+            color:black;
+            cursor: pointer;
+        }
+    }
+}

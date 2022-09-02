@@ -7,6 +7,7 @@ import User from './User';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom'
 import { FaGift} from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 
 
@@ -47,11 +48,11 @@ const Navbar = () => {
 
                 <div className={style.nav__right}>
                     <div className={style.list__items}>
-                        <div className={style.name__items}><p>Home</p></div>
-                        <div className={style.name__items}><p>TV Show</p></div>
-                        <div className={style.name__items}><p>Movies</p></div>
+                        <Link className={style.name__items} to={'/'}> <p>Home</p> </Link>
+                        <div className={style.name__items}> <p>TV Show</p> </div>
+                        <Link className={style.name__items} to={'/movies'}> <p>Movies</p> </Link>
                         <div className={style.name__items}><p>Latest</p></div>
-                        <div className={clsx(style.name__items, style.icon)}><FaGift /></div>
+                        <div className={clsx(style.name__items, style.icon)}><FaGift/></div>
                         <div className={style.name__items}> <Notifications /></div>
                         <User />
                     </div>

@@ -4,18 +4,28 @@ import { FaCaretDown } from 'react-icons/fa'
 import Avatar from '../../assets/images/avatar.png'
 import { AiOutlineSetting } from 'react-icons/ai'
 import { VscSignOut } from 'react-icons/vsc'
-import { useState } from 'react';
+import { useState,useRef,useEffect } from 'react';
 
 const User = () => {
 
-    const [show, setShow] = useState(false);
-
-    const handleShow = () => {
-        setShow(!show);
+    const isShow = useRef();
+    const [show, setShow] = useState('');
+   
+    const handleShow = (e) =>{
+        setShow(isShow.current.contains(e.target));
     }
 
+    useEffect(()=>{
+        if(show){
+            document.addEventListener('click',handleShow);
+            
+        }else{
+            document.removeEventListener('click',handleShow);
+        }
+    },[show])
+
     return (
-        <div className={style.avatar} onClick={(e) => handleShow(e)}>
+        <div className={style.avatar} ref={isShow} onClick={(e) => handleShow(e)}>
             <div className={style.avatar__circle}><img src={Avatar} alt="" /></div>
             <div className={style.avatar__icon}><FaCaretDown /></div>
             {

@@ -4,32 +4,31 @@ import { MdNotifications } from 'react-icons/md'
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
-import classnames from 'classnames';
+
 
 const Notifications = () => {
-
 
     const isShow = useRef();
     const [show, setShow] = useState('');
 
+
     const handleShow = (e) =>{
-            // setShow(isShow.current.contains(e.target));
-            setShow(!show);
-
+       
+        setShow(isShow.current.contains(e.target));
     }
-
-    // useEffect(()=>{
-    //     if(show){
-    //         document.addEventListener('click',handleShow);
-    //     }else{
-    //         document.removeEventListener('click',handleShow);
-    //     }
-    // },[show])
-
+    
+    useEffect(()=>{
+        if(show){
+            document.addEventListener('click',handleShow);
+        }
+        else{
+            document.removeEventListener('click',handleShow);
+        }
+    })
 
     return (
         <>
-            <div className={style.icon} ref={isShow} onClick={(e)=>handleShow(e)}><MdNotifications /></div>
+            <div className={style.icon} ref={isShow} onClick={(e)=>{handleShow(e)}}><MdNotifications /></div>
             {
                 show ? (
                     <div className={style.notifications__list}>

@@ -5,7 +5,6 @@ import Menus from '../Menus/Menus';
 import MoviesDetail from '../MoviesDetail/MoviesDetail';
 import {useSelector} from 'react-redux'
 
-
 const Home = () => {
     const {MovieDetail} = useSelector(state => state.infoMovies)
     const [isShow, setIsShow] = useState(false);

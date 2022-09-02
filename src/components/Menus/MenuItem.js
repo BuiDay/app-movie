@@ -15,7 +15,6 @@ const MenuItem = (prop) => {
     return (
         <Link className='menuItem'
             to={to}
-            spy="true"
             smooth = "true"
             offset = {-70}
             duration = {500}

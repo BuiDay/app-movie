@@ -23,7 +23,6 @@ const SearchMovies = () => {
             dispatch(getSearchMovies(keywords));
     }, [keywords, dispatch])
 
-console.log(SearchMovies)
     return (
         <SearchPane>
             {
@@ -79,7 +78,7 @@ const SearchPane = styled.div`
         }
 
         .movieItem {
-            posotion: relative;
+            position: relative;
             max-width:400px;
             width:100%;
             height:200px;

@@ -26,9 +26,10 @@ const Notifications = () => {
         }
     })
 
+    
     return (
-        <>
-            <div className={style.icon} ref={isShow} onClick={(e)=>{handleShow(e)}}><MdNotifications /></div>
+        <div>
+            <div className={style.icon} id='notifi' ref={isShow} onClick={(e)=>{handleShow(e)}}><MdNotifications /></div>
             {
                 show ? (
                     <div className={style.notifications__list}>
@@ -42,7 +43,7 @@ const Notifications = () => {
                
             
             
-        </>
+        </div>
     );
 };
 

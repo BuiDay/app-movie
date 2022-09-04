@@ -1,12 +1,12 @@
 import React from 'react';
 import { useViewport } from "../hooks";
 import { useDispatch} from 'react-redux';
-import style from './MoviesStyle.module.scss'
+import style from './TVShowStyle.module.scss'
 import {getMovieDetail } from '../store/actions';
 
-const Movies = (props) => {
+const TVShow = (props) => {
 
-    const dispatch = useDispatch
+    const dispatch = useDispatch();
     const handleSetMovie = (movie) =>{
         dispatch(getMovieDetail(movie));
     }
@@ -16,7 +16,7 @@ const Movies = (props) => {
    
     return (
         <div className={style.moviesPane}>
-            <h3>All Movies</h3>
+            <h3>TV Show</h3>
                     <div className={style.searchContent}
                         style={{
                             gridTemplateColumns: `repeat(${windowWidth > 1200 ? 5 :
@@ -44,5 +44,5 @@ const Movies = (props) => {
     );
 };
 
-export default Movies;
+export default TVShow;
 

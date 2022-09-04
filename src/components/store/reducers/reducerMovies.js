@@ -11,7 +11,9 @@ const reducerMoviesInitalState = {
     Documentaries:null,
     MovieDetail:null,
     SearchMovies:null,
-    AllMovies:null
+    AllMovies:null,
+    TVSHOW:null
+   
 }
 const reducerMovies = (state = reducerMoviesInitalState, action)=>{
     const {type, payload} = action
@@ -41,6 +43,8 @@ const reducerMovies = (state = reducerMoviesInitalState, action)=>{
             return {...state, SearchMovies:payload}
         case Type.GET_MOVIES:
             return {...state, AllMovies:payload} 
+        case Type.GET_TV_SHOW:
+            return {...state, TVSHOW:payload} 
     
             default:
             return state;

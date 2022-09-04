@@ -127,3 +127,17 @@ export const getMovies = (page) => async dispatch =>{
         console.log('error',err);
     }
 }
+
+export const getTVshow = (page) => async dispatch =>{
+    try{
+        const result = await axios.get(
+            `${BASE_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity&language=en-US&sort_by=popularity.desc&page=${page}&timezone=America`
+        );
+        dispatch({type:Type.GET_TV_SHOW,payload: result.data.results})
+    }
+    catch(err){
+        console.log('error',err);
+    }
+}
+
+

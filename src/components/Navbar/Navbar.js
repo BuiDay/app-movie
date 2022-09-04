@@ -49,8 +49,8 @@ const Navbar = () => {
                 <div className={style.nav__right}>
                     <div className={style.list__items}>
                         <Link className={style.name__items} to={'/'}> <p>Home</p> </Link>
-                        <div className={style.name__items}> <p>TV Show</p> </div>
-                        <Link className={style.name__items} to={'/movies'}> <p>Movies</p> </Link>
+                        <Link className={style.name__items} to={'/tvshow/page/1'}> <p>TV Show</p> </Link>
+                        <Link className={style.name__items} to={'/movies/page/1'}> <p>Movies</p> </Link>
                         <div className={style.name__items}><p>Latest</p></div>
                         <div className={clsx(style.name__items, style.icon)}><FaGift/></div>
                         <div className={style.name__items}> <Notifications /></div>

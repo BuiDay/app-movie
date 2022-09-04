@@ -4,6 +4,7 @@ import Home from './components/Pages/Home';
 import Search from './components/Pages/Search';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import AllMovies from './components/Pages/AllMovies';
+import TVshow from './components/Pages/TVshow';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home />}/>
         <Route exact path='/search' element={<Search />}/>
-        <Route exact path='/movies' element={<AllMovies/>}/>
+        <Route exact path='/movies/page/:index' element={<AllMovies/>}/>
+        <Route exact path='/tvshow/page/:index' element={<TVshow />}/>
       </Routes>
     </BrowserRouter>
       

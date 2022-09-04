@@ -3,6 +3,7 @@ import Intro from '../Intro/Intro';
 import Contents from '../Contents/Contents';
 import Menus from '../Menus/Menus';
 import MoviesDetail from '../MoviesDetail/MoviesDetail';
+import Footer from '../../components/footer/Footer'
 import {useSelector} from 'react-redux'
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
             <Contents />
             <MoviesDetail movie={MovieDetail} showModal={isShow} />
             <Menus />
+            <Footer />
         </div>
     );
 };

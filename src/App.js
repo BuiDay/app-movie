@@ -5,6 +5,7 @@ import Search from './components/Pages/Search';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import AllMovies from './components/Pages/AllMovies';
 import TVshow from './components/Pages/TVshow';
+import Footer from './components/footer/Footer'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path='/movies/page/:index' element={<AllMovies/>}/>
         <Route exact path='/tvshow/page/:index' element={<TVshow />}/>
       </Routes>
+      <Footer />
     </BrowserRouter>
       
       
